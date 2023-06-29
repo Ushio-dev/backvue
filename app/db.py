@@ -1,5 +1,5 @@
 from app import app
-#from flask_mysqldb import MySQL
+from flask_mysqldb import MySQL
 #from dotenv import load_dotenv
 import os
 
