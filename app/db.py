@@ -13,10 +13,10 @@ import os
 mysql = MySQL()
 
 # Configurar la conexión a MySQL utilizando las variables de entorno
-app.config['MYSQL_USER'] = os.environ['MYSQL_USER'] or 'root'
-app.config['MYSQL_PASSWORD'] = os.environ['MYSQL_PASSWORD'] or 'micram123'
-app.config['MYSQL_HOST'] = os.environ['MYSQL_HOST'] or 'localhost'
-app.config['MYSQL_DB'] = os.environ['MYSQL_DB'] or 'crudflask'
+app.config['MYSQL_USER'] = os.environ['MYSQL_USER']
+app.config['MYSQL_PASSWORD'] = os.environ['MYSQL_PASSWORD']
+app.config['MYSQL_HOST'] = os.environ['MYSQL_HOST']
+app.config['MYSQL_DB'] = os.environ['MYSQL_DB']
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 # Inicializar la conexión a MySQL
