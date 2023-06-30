@@ -1,4 +1,4 @@
-from .app import app
+from .app.app import app
 from contacts import contacts
 import os
 from dotenv import load_dotenv
