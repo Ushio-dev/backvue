@@ -1,5 +1,5 @@
 from flask import Flask, Blueprint, request, jsonify
-from app import app
+from . import app
 from db import mysql
 
 contacts = Blueprint('usuarios', __name__)
