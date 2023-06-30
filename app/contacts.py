@@ -6,7 +6,21 @@ contacts = Blueprint('usuarios', __name__)
 
 @contacts.route('/usuarios', methods=['GET'])
 def get_usuarios():
-    cur = mysql.connection.cursor()
+    with mysql.connection.cursor() as cursor:
+        cursor.execute('SELECT * FROM usuarios')
+        data = cursor.fetchall()
+        
+        usuarios = []
+        for row in data:
+            usuario = {
+                'id': row.get('id'),
+                'nombre_completo': row.get('nombre_completo'),
+                'telefono': row.get('telefono'),
+                'email': row.get('email')
+            }
+            usuarios.append(usuario)
+        return jsonify(usuarios)
+    """cur = mysql.connection.cursor()
     cur.execute('SELECT * FROM usuarios')
     data = cur.fetchall()
     cur.close()
@@ -21,7 +35,7 @@ def get_usuarios():
         }
         usuarios.append(usuario)
 
-    return jsonify(usuarios)
+    return jsonify(usuarios)"""
 
 @contacts.route('/usuarios', methods=['POST'])
 def add_usuario():
